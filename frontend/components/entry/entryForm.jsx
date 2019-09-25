@@ -1,5 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
+import { Link, Redirect } from 'react-router-dom';
 
 class EntryForm extends React.Component {
     constructor(props) {
@@ -33,7 +34,8 @@ class EntryForm extends React.Component {
         if (this.props.blogs.length > 0){
             blogs = this.duplicateArray(this.props.blogs);
             blogs = blogs.map(blog => (
-                <li key={blog.id}>{blog.title}</li>
+                <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                // <li key={blog.id}>{blog.title}</li>
                 )
             )
         }
