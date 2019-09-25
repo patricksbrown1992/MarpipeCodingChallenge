@@ -16,6 +16,8 @@ class User < ApplicationRecord
     # validates_email_format_of :email
     validates :password, length: {minimum: 6, allow_nil: true}
 
+    has_many :blogs
+    
     attr_reader :password
     after_initialize :ensure_session_token
 
