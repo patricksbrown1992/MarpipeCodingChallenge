@@ -2,8 +2,8 @@ import * as APIUtil from '../util/sessionAPIUtil';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const REMOVE_USER = 'REMOVE_USER';
-// export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-// export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveUser = (user) => ({
     type: RECEIVE_USER,
@@ -18,13 +18,13 @@ const removeUser = () => ({
     type: REMOVE_USER,
 
 });
-// const receiveErrors = errors => {
+const receiveErrors = errors => {
 
-//     return {
-//         type: RECEIVE_ERRORS,
-//         errors
-//     };
-// };
+    return {
+        type: RECEIVE_ERRORS,
+        errors
+    };
+};
 
 
 export const signup = (user) => dispatch => (
