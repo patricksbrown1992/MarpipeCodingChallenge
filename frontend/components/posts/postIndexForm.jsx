@@ -4,7 +4,7 @@ import { merge } from 'lodash';
 class PostIndexForm extends React.Component {
     constructor(props) {
         super(props);
-  
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
     }
 
@@ -23,8 +23,11 @@ class PostIndexForm extends React.Component {
         this.props.getBlogs(this.props.user).then(() => this.props.blogs.forEach((blog) => {
             this.props.getPosts(blog.id)
         }));
+    }
 
-        
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.logout();
     }
 
    
