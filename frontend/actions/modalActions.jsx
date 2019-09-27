@@ -36,6 +36,15 @@ export const openDeleteBlogModal = entity => {
     }
 }
 
+export const openUpdateBlogModal = entity => {
+
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'updateBlog'
+    }
+}
+
 
 export const closeModal = () => ({
     type: CLOSE_MODAL

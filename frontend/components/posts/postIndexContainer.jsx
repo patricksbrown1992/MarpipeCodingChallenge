@@ -4,7 +4,7 @@ import { getPosts, getPost, deletePost, clearPosts } from '../../actions/postAct
 import {getBlogs, clearBlogs, getBlog} from '../../actions/blogActions';
 import {logout} from '../../actions/sessionActions';
 import { withRouter } from 'react-router-dom';
-import { openCreatePostModal, openDeleteBlogModal} from '../../actions/modalActions';
+import { openCreatePostModal, openDeleteBlogModal, openUpdateBlogModal} from '../../actions/modalActions';
 
 const msp = (state, ownProps) => {
     const blog = state.entities.blogs[ownProps.match.params.blog_id];
@@ -27,7 +27,8 @@ const mdp = dispatch => ({
     openCreatePostModal: id => dispatch(openCreatePostModal(id)),
     clearBlogs: () => dispatch(clearBlogs()),
     getBlog: id => dispatch(getBlog(id)),
-    openDeleteBlogModal: entity => dispatch(openDeleteBlogModal(entity))
+    openDeleteBlogModal: entity => dispatch(openDeleteBlogModal(entity)),
+    openUpdateBlogModal: entity => dispatch(openUpdateBlogModal(entity))
     
 
 });
