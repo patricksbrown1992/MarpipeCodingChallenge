@@ -20,6 +20,8 @@ class User < ApplicationRecord
     has_many :posts,
         through: :blogs,
         source: :posts
+    has_many :taggings
+    has_many :tags
     
     attr_reader :password
     after_initialize :ensure_session_token
