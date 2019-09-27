@@ -9,6 +9,7 @@ import PostShowForm from './posts/postShowContainer';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Modal from './modal/modal'
 import TagIndexContainer from './tags/tagIndexContainer';
+import AllPosts from './posts/allPostsContainer';
 
 const App = () => (
 
@@ -22,6 +23,7 @@ const App = () => (
             <Authorized exact path='/signup' component={SignUpForm} />
             <ProtectedRoute path='/entry' component={BlogIndexForm} />
             <ProtectedRoute exact path='/tags' component={TagIndexContainer} />
+            <ProtectedRoute exact path='/allposts' component={AllPosts} />
         </Switch>
     </>
 
