@@ -6,6 +6,8 @@ import CreateBlog from '../../components/blog/blogCreateContainer';
 import DeleteBlog from '../../components/blog/blogDeleteContainer';
 import UpdateBlog from '../../components/blog/blogUpdateContainer';
 import TagNewContainer from '../../components/tags/tagNewContainer';
+import TagDropDownContainer from '../../components/tags/tagDropContainer';
+import TagEditContainer from '../../components/tags/tagEditContainer';
 
 function Modal({ modal, closeModal }) {
 
@@ -27,8 +29,14 @@ function Modal({ modal, closeModal }) {
         case 'updateBlog':
             component = <UpdateBlog id={modal.entity}/>
             break;
+        case 'editTag':
+            component = <TagEditContainer id={modal.entity.id} />;
+            break;
         case 'addTag':
             component = <TagNewContainer id={modal.entity.id} />;
+            break;
+        case 'tagDropDown':
+            component = <TagDropDownContainer tag={modal.entity} />;
             break;
         default:
             return null;

@@ -7,7 +7,7 @@ class TagIndexForm extends React.Component {
         super(props);
         this.state = { tag: '', selected: false };
         this.handleSubmitNewTag = this.handleSubmitNewTag.bind(this);
-        // this.handleSubmitDropDown = this.handleSubmitDropDown.bind(this);
+        this.handleSubmitDropDown = this.handleSubmitDropDown.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.sortTags = this.sortTags.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
@@ -89,12 +89,12 @@ class TagIndexForm extends React.Component {
     }
 
 
-    // handleSubmitDropDown(entity) {
-    //     return (e) => {
-    //         e.preventDefault();
-    //         this.props.tagDropDown(entity);
-    //     }
-    // }
+    handleSubmitDropDown(entity) {
+        return (e) => {
+            e.preventDefault();
+            this.props.tagDropDown(entity);
+        }
+    }
 
 
     render() {
@@ -132,14 +132,14 @@ class TagIndexForm extends React.Component {
                             return (
                                 <li key={tag.id}>
                                     {/* <div className="tag-index-intial">{tag.name[0]}</div> */}
-                                    <div className="tag-name"> <button className="tag-triage-redirect-button" >{tag.name}</button><button  className='chevron-down-button'><i className="fas fa-chevron-down"></i></button></div>
+                                    <div className="tag-name"> <button className="tag-triage-redirect-button" >{tag.name}</button><button onClick={this.handleSubmitDropDown(tag)} className='chevron-down-button'><i className="fas fa-chevron-down"></i></button></div>
                                 </li>
                             )
                         } else {
                             return (
                                 <li key={tag.id}>
                                     <div className="tag-index-intial">{tag.name[0].toUpperCase()}</div>
-                                    <div className="tag-name"><button className="tag-triage-redirect-button" >{tag.name}</button><button  className='chevron-down-button'><i className="fas fa-chevron-down"></i></button></div>
+                                    <div className="tag-name"><button className="tag-triage-redirect-button" >{tag.name}</button><button onClick={this.handleSubmitDropDown(tag)} className='chevron-down-button'><i className="fas fa-chevron-down"></i></button></div>
                                 </li>
                             )
                         }

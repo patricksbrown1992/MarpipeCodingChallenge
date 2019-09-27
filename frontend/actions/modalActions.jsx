@@ -44,6 +44,21 @@ export const openUpdateBlogModal = entity => {
         modal: 'updateBlog'
     }
 }
+export const editTagModal = entity => {
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'editTag'
+    }
+}
+
+export const tagDropDown = entity => {
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'tagDropDown'
+    };
+};
 
 export const openAddTagModal = entity => {
     return {
