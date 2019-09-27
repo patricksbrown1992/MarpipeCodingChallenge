@@ -1,5 +1,5 @@
 export const getPosts = (id, data) => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'GET',
         url: `api/blogs/${id}/posts`,
@@ -29,7 +29,7 @@ export const createPost = (id, post) => {
 };
 
 export const updatePost = (id, post) => {
-
+    // debugger
     return $.ajax({
         method: 'PATCH',
         url: `api/blogs/${id}/posts/${post.id}`,

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { logout, clearErrors} from '../../actions/sessionActions';
 import EntryForm from './entryForm';
 import {getBlogs} from '../../actions/blogActions'
+import { withRouter } from 'react-router-dom';
 
 const msp = state => ({
     user: state.entities.user[state.session.id],
@@ -15,4 +16,4 @@ const mdp = (dispatch) => ({
     
 });
 
-export default connect(msp, mdp)(EntryForm);
+export default withRouter(connect(msp, mdp)(EntryForm));

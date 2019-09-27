@@ -7,7 +7,7 @@ const blogsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_BLOGS:
             const blogs = {};
-            debugger
+            // debugger
             action.blogs.forEach((blog) => {
                 blogs[blog.id] = blog;
             });

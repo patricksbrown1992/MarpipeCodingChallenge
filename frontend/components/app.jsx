@@ -5,12 +5,15 @@ import LogInForm from './logIn/logInContainer';
 import PostIndexForm from './posts/postIndexContainer';
 import SignUpForm from './signUp/signUpContainer';
 import EntryForm from './entry/entryContainer';
+import PostShowForm from './posts/postShowContainer';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
-
+import Modal from './modal/modal'
 const App = () => (
 
-    <>
+    <>  
+        <Modal />
         <Switch>
+            <ProtectedRoute path='/blogs/:blog_id/posts/:post_id' component={PostShowForm} />
             <ProtectedRoute path='/blogs/:blog_id' component={PostIndexForm} />
             <Authorized exact path='/login' component={LogInForm} />
             <Authorized exact path='/' component={Splash} />

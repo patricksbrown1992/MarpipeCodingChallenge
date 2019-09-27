@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import ReactQuill from 'react-quill';
 
 class NoteShowForm extends React.Component {
     constructor(props) {
@@ -14,9 +15,16 @@ class NoteShowForm extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         // this.handleAddTag = this.handleAddTag.bind(this);
     }
 
+    componentDidMount(){
+        debugger
+        this.props.getBlogs(this.props.user).then(() => this.props.blogs.forEach((blog) => {
+            this.props.getPosts(blog.id)
+        })).then(() => this.setState({ change: true }));
+    }
   
 
     componentWillReceiveProps(newProps) {
@@ -43,14 +51,16 @@ class NoteShowForm extends React.Component {
 
     //     this.props.noteTagAddModal(this.props.match.params.post_id)
     // }
+   
 
     handleChange(value) {
         let title = this.state.title;
         let body = value
         let blog_id = this.state.blog_id;
         let id = this.state.id;
-        let note = { title, body, blog_id, id };
-        this.setState({ body: value }, () => this.props.updatePost({ id, note }));
+        let post = { title, body, blog_id, id };
+        // debugger
+        this.setState({ body: value }, () => this.props.updatePost({ id, post }));
     }
 
 
@@ -67,20 +77,35 @@ class NoteShowForm extends React.Component {
         };
     }
 
-    render() {
+    handleDelete(){
+        return (e) => {
+            e.preventDefault();
+            let title = this.state.title;
+            let body = this.state.body;
+            let blog_id = this.state.blog_id;
+            let id = this.state.id;
+            let post = { title, body, blog_id, id };
+            this.props.deletePost({ post })
+        };
 
-       
-            if (this.state.change) {
-                return <Redirect to={`/username/${this.state.notebook_id}`} />
+    }
+
+    render() {
+            if(!this.state.change){
+                return null;
             }
+            debugger
             let post = this.props.post;
+            // debugger
             // let showtagbutton;
             // if (this.props.tags.length < 1) {
             //     showtagbutton = ''
             // } else {
             //     showtagbutton = <button className='add-tag-on-note-button' onClick={this.handleAddTag}>Add Tag</button>
             // }
+            
             return (
+                
                 <div className="right-nav">
 
                     <h1>{post.title}</h1>
@@ -88,9 +113,10 @@ class NoteShowForm extends React.Component {
                     <br />
                     {/* {showtagbutton} */}
                     <br />
-                    <input value={this.state.body} onChange={this.handleChange} theme="snow" />
+                    <ReactQuill value={this.state.body} onChange={this.handleChange} theme="snow" />
                     <br />
                     <br />
+                    <button onClick={this.handleDelete}>Delete Post</button>
                     <br />
                     <br />
                     

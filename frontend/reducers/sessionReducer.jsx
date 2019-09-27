@@ -9,7 +9,7 @@ const _nullUser = Object.freeze({
 });
 
 const sessionReducer = (state = _nullUser, action) => {
-    debugger
+    // debugger
     Object.freeze(state);
 
     switch (action.type) {

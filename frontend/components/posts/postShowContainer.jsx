@@ -1,11 +1,12 @@
-import postIndexForm from './postIndexForm';
+import postShowForm from './postShowForm';
 import { connect } from 'react-redux';
 import { getPosts, getPost, deletePost, clearPosts, updatePost } from '../../actions/postActions';
 import { getBlogs } from '../../actions/blogActions';
 import { logout } from '../../actions/sessionActions';
+import { withRouter } from 'react-router-dom';
 
-const msp = (state) => {
-
+const msp = (state, ownProps) => {
+    // debugger
     const post = state.entities.posts[ownProps.match.params.post_id];
     return {
         posts: Object.values(state.entities.posts),
@@ -28,4 +29,4 @@ const mdp = dispatch => ({
 
 });
 
-export default connect(msp, mdp)(postIndexForm);
+export default withRouter(connect(msp, mdp)(postShowForm));
