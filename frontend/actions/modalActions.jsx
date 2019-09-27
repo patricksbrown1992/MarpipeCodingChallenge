@@ -45,6 +45,14 @@ export const openUpdateBlogModal = entity => {
     }
 }
 
+export const openAddTagModal = entity => {
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'addTag'
+    }
+}
+
 
 export const closeModal = () => ({
     type: CLOSE_MODAL

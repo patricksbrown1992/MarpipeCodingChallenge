@@ -8,6 +8,8 @@ import BlogIndexForm from './blog/blogIndexContainer';
 import PostShowForm from './posts/postShowContainer';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Modal from './modal/modal'
+import TagIndexContainer from './tags/tagIndexContainer';
+
 const App = () => (
 
     <>  
@@ -19,6 +21,7 @@ const App = () => (
             <Authorized exact path='/' component={Splash} />
             <Authorized exact path='/signup' component={SignUpForm} />
             <ProtectedRoute path='/entry' component={BlogIndexForm} />
+            <ProtectedRoute exact path='/tags' component={TagIndexContainer} />
         </Switch>
     </>
 

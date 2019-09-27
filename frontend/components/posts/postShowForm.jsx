@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 
-class NoteShowForm extends React.Component {
+class PostShowForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -99,13 +99,15 @@ class NoteShowForm extends React.Component {
             // }
             let post = this.props.post;
             // debugger
-            debugger
+            // debugger
+
             // let showtagbutton;
             // if (this.props.tags.length < 1) {
             //     showtagbutton = ''
             // } else {
             //     showtagbutton = <button className='add-tag-on-note-button' onClick={this.handleAddTag}>Add Tag</button>
             // }
+            
             
             return (
                 
@@ -131,4 +133,4 @@ class NoteShowForm extends React.Component {
 }
 
 
-export default NoteShowForm;
+export default PostShowForm;

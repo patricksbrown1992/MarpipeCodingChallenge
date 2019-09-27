@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class NotebookNewForm extends React.Component {
+class BlogNewForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -35,7 +35,7 @@ class NotebookNewForm extends React.Component {
                         <h1>Create new blog</h1>
                         <i onClick={this.props.closeModal} className="fas fa-times fa-2x"></i>
                     </div>
-                    <h3>Blogs are useful for grouping notes around a common topic</h3>
+                    <h3>Blogs are useful for grouping posts around a common topic</h3>
                     <h5>Title</h5>
                     <span>
                         <input type="text" value={this.state.title} onChange={this.handleChange()} placeholder='Blog Title' />
@@ -54,7 +54,7 @@ class NotebookNewForm extends React.Component {
                         <h1>Create new blog</h1>
                         <i onClick={this.props.closeModal} className="fas fa-times fa-2x"></i>
                     </div>
-                    <h3>Blogs are useful for grouping notes around a common topic</h3>
+                    <h3>Blogs are useful for grouping posts around a common topic</h3>
                     <h5>Name</h5>
                     <span>
 
@@ -73,4 +73,4 @@ class NotebookNewForm extends React.Component {
 }
 
 
-export default NotebookNewForm;
+export default BlogNewForm;

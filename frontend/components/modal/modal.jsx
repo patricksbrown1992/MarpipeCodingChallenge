@@ -5,6 +5,7 @@ import CreatePost from '../../components/posts/postCreateModalContainer';
 import CreateBlog from '../../components/blog/blogCreateContainer';
 import DeleteBlog from '../../components/blog/blogDeleteContainer';
 import UpdateBlog from '../../components/blog/blogUpdateContainer';
+import TagNewContainer from '../../components/tags/tagNewContainer';
 
 function Modal({ modal, closeModal }) {
 
@@ -25,6 +26,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'updateBlog':
             component = <UpdateBlog id={modal.entity}/>
+            break;
+        case 'addTag':
+            component = <TagNewContainer id={modal.entity.id} />;
             break;
         default:
             return null;
