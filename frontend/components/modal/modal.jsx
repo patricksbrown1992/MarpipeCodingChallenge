@@ -9,6 +9,7 @@ import TagNewContainer from '../../components/tags/tagNewContainer';
 import TagDropDownContainer from '../../components/tags/tagDropContainer';
 import TagEditContainer from '../../components/tags/tagEditContainer';
 import TagDeleteContainer from '../../components/tags/tagDeleteContainer';
+import LogoutContainer from '../leftNav/logoutContainer';
 
 function Modal({ modal, closeModal }) {
 
@@ -26,6 +27,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'deleteBlog':
             component = <DeleteBlog blog = {modal.entity}/>;
+            break;
+        case 'logout':
+            component = <LogoutContainer />;
             break;
         case 'deleteTag':
             component = <TagDeleteContainer tag={modal.entity} />;

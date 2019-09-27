@@ -1,6 +1,6 @@
 import LeftNavForm from './leftNavForm';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/sessionActions';
+import { logOutModal } from '../../actions/modalActions';
 
 
 
@@ -12,7 +12,7 @@ const msp = state => ({
 });
 
 const mdp = dispatch => ({
-    logout: () => dispatch(logout()),
+    logOutModal: () => dispatch(logOutModal()),
     
 });
 

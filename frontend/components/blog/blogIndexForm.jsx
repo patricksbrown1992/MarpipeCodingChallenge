@@ -1,11 +1,12 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { Link, Redirect } from 'react-router-dom';
+import LeftNav from '../../components/leftNav/leftNavContainer';
 
 class EntryForm extends React.Component {
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        
         this.duplicateArray = this.duplicateArray.bind(this);
         this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
     }
@@ -31,10 +32,7 @@ class EntryForm extends React.Component {
         this.props.getBlogs(this.props.user);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.logout();
-    }
+   
 
     render(){
         let blogs
@@ -54,6 +52,7 @@ class EntryForm extends React.Component {
         return (
             <div className='entry-form'>
                 <h1>HI You're in</h1>
+                <LeftNav />
                 <br/>
                 {blogs}
                 <br/>
@@ -61,7 +60,7 @@ class EntryForm extends React.Component {
                 <button onClick={this.handleCreateSubmit}>Create Blog</button>
                 <br/>
                 <br/>
-                <button onClick={this.handleSubmit}>logout</button>
+               
             </div>
 
 

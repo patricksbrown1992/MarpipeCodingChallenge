@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import ReactQuill from 'react-quill';
+import LeftNav from '../../components/leftNav/leftNavContainer';
 
 class PostShowForm extends React.Component {
     constructor(props) {
@@ -112,7 +113,7 @@ class PostShowForm extends React.Component {
             return (
                 
                 <div className="right-nav">
-
+                    <LeftNav /> 
                     <h1>{post.title}</h1>
                     <br />
                     <br />

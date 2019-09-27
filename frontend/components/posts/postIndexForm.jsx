@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { Link, Redirect } from 'react-router-dom';
+import LeftNav from '../../components/leftNav/leftNavContainer';
 
 class PostIndexForm extends React.Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class PostIndexForm extends React.Component {
     componentDidMount() {
         this.props.clearBlogs();
         this.props.clearPosts();
-        debugger
+
         this.props.getBlog(this.props.match.params.blog_id).then(() => this.props.getPosts(this.props.match.params.blog_id))
         .then(() => this.setState({change: true}))
        
@@ -74,6 +75,7 @@ class PostIndexForm extends React.Component {
         }
         return (
             <div className='entry-form'>
+                <LeftNav />
                 <h1>{this.props.blog.title}</h1>
                 <br />
                 {posts}

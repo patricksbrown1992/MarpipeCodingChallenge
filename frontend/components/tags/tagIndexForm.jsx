@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { merge } from 'lodash';
+import LeftNav from "../leftNav/leftNavContainer";
 
 class TagIndexForm extends React.Component {
     constructor(props) {
@@ -108,7 +109,7 @@ class TagIndexForm extends React.Component {
                 if (this.props.tags.length < 1) {
                     return (
                         <div className="tag-index">
-          
+                            <LeftNav />
                             <div className="tag-index-right">
                                 <div className="tag-index-upper">
                                     <div className="tag-index-header">
@@ -147,7 +148,7 @@ class TagIndexForm extends React.Component {
 
                     return (
                         <div className="tag-index">
-           
+                            <LeftNav />
                             <div className="tag-index-right">
                                 <div className="tag-index-upper">
                                     <div className="tag-index-header">

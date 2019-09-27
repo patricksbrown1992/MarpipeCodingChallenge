@@ -35,6 +35,12 @@ export const openDeleteBlogModal = entity => {
         modal: 'deleteBlog'
     }
 }
+export const logOutModal = () => {
+    return {
+        type: OPEN_MODAL,
+        modal: 'logout'
+    };
+};
 
 export const openUpdateBlogModal = entity => {
 

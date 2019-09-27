@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 const msp = (state, ownProps) => {
     
     const post = state.entities.posts[ownProps.match.params.post_id];
-    debugger
+
     return {
         posts: Object.values(state.entities.posts),
         user: state.entities.user[state.session.id],
