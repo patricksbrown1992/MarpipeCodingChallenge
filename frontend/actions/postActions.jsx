@@ -48,7 +48,8 @@ export const updatePost= ({ id, post }) => dispatch => {
     return APIUtil.updatePost(id, post).then(post => dispatch(receivePost(post)))
 };
 
-export const deletePost = (post) => dispatch => (
-    APIUtil.deletePost(post).then((post) => dispatch(destroyPost(post)))
-);
+export const deletePost = (post) => dispatch => {
+    debugger
+    return APIUtil.deletePost(post).then((post) => dispatch(destroyPost(post)))
+};
 

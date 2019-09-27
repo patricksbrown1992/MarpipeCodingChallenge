@@ -85,7 +85,9 @@ class NoteShowForm extends React.Component {
             let blog_id = this.state.blog_id;
             let id = this.state.id;
             let post = { title, body, blog_id, id };
-            this.props.deletePost({ post })
+            debugger
+            this.props.deletePost( post )
+            return this.props.history.push(`/blogs/${blog_id}`);
         };
 
     }
@@ -116,7 +118,7 @@ class NoteShowForm extends React.Component {
                     <ReactQuill value={this.state.body} onChange={this.handleChange} theme="snow" />
                     <br />
                     <br />
-                    <button onClick={this.handleDelete}>Delete Post</button>
+                    <button onClick={this.handleDelete()}>Delete Post</button>
                     <br />
                     <br />
                     
