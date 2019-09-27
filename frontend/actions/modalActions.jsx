@@ -10,13 +10,32 @@ export const openModal = modal => {
 };
 
 export const openCreatePostModal = entity => {
-    debugger
+
     return {
         type: OPEN_MODAL,
         entity,
         modal: 'createPost'
     }
 }
+
+export const openCreateBlogModal = entity => {
+
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'createBlog'
+    }
+}
+
+export const openDeleteBlogModal = entity => {
+
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'deleteBlog'
+    }
+}
+
 
 export const closeModal = () => ({
     type: CLOSE_MODAL

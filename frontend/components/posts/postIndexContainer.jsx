@@ -1,10 +1,11 @@
 import postIndexForm from './postIndexForm';
 import { connect } from 'react-redux';
 import { getPosts, getPost, deletePost, clearPosts } from '../../actions/postActions';
-import {getBlogs} from '../../actions/blogActions';
+import {getBlogs, clearBlogs, getBlog} from '../../actions/blogActions';
 import {logout} from '../../actions/sessionActions';
 import { withRouter } from 'react-router-dom';
-import {openCreatePostModal} from '../../actions/modalActions';
+import { openCreatePostModal, openDeleteBlogModal} from '../../actions/modalActions';
+
 const msp = (state, ownProps) => {
     const blog = state.entities.blogs[ownProps.match.params.blog_id];
     return {
@@ -23,7 +24,10 @@ const mdp = dispatch => ({
     deletePost: post => dispatch(deletePost(post)),
     clearPosts: () => dispatch(clearPosts()),
     logout: () => dispatch(logout()), 
-    openCreatePostModal: id => dispatch(openCreatePostModal(id))
+    openCreatePostModal: id => dispatch(openCreatePostModal(id)),
+    clearBlogs: () => dispatch(clearBlogs()),
+    getBlog: id => dispatch(getBlog(id)),
+    openDeleteBlogModal: entity => dispatch(openDeleteBlogModal(entity))
     
 
 });

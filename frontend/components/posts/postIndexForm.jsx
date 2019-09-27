@@ -9,6 +9,7 @@ class PostIndexForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
         this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
+        this.handleOpenDeleteModal = this.handleOpenDeleteModal.bind(this);
     }
 
     duplicateArray(array) {
@@ -29,10 +30,18 @@ class PostIndexForm extends React.Component {
     }
 
     componentDidMount() {
+        this.props.clearBlogs();
+        this.props.clearPosts();
+        debugger
+        this.props.getBlog(this.props.match.params.blog_id).then(() => this.props.getPosts(this.props.match.params.blog_id))
+        .then(() => this.setState({change: true}))
+       
+    }
 
-        this.props.getBlogs(this.props.user).then(() => this.props.blogs.forEach((blog) => {
-            this.props.getPosts(blog.id)
-        })).then(() => this.setState({change: true}));
+    handleOpenDeleteModal(e){
+        e.preventDefault();
+        this.props.openDeleteBlogModal(this.props.blog);
+
     }
 
     handleSubmit(e) {
@@ -66,6 +75,9 @@ class PostIndexForm extends React.Component {
                 <br/>
                 <button onClick={this.handleCreateSubmit}>Create Post</button>
                 <br />
+                <br/>
+                <button onClick={this.handleOpenDeleteModal}>Delete Blog</button>
+                <br/>
                 <button onClick={this.handleSubmit}>logout</button>
             </div>
 

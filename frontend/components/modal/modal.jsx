@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModal } from '../../actions/modalActions';
 import { connect } from 'react-redux';
 import CreatePost from '../../components/posts/postCreateModalContainer';
+import CreateBlog from '../../components/blog/blogCreateContainer';
+import DeleteBlog from '../../components/blog/blogDeleteContainer';
 
 function Modal({ modal, closeModal }) {
 
@@ -14,7 +16,12 @@ function Modal({ modal, closeModal }) {
 
             component = <CreatePost blog_id={modal.entity}/>;
             break;
-        
+        case 'createBlog':
+            component = <CreateBlog user_id={modal.entity.id}/>;
+            break;
+        case 'deleteBlog':
+            component = <DeleteBlog blog = {modal.entity}/>;
+            break;
         default:
             return null;
     }

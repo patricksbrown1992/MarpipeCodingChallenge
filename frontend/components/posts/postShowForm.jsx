@@ -19,32 +19,33 @@ class NoteShowForm extends React.Component {
         // this.handleAddTag = this.handleAddTag.bind(this);
     }
 
-    componentDidMount(){
-        debugger
-        this.props.getBlogs(this.props.user).then(() => this.props.blogs.forEach((blog) => {
-            this.props.getPosts(blog.id)
-        })).then(() => this.setState({ change: true }));
-    }
+    // componentDidMount(){
+    //     this.props.clearBlogs();
+    //     this.props.clearPosts();
+    //     this.props.getBlogs(this.props.user).then(() => this.props.blogs.forEach((blog) => {
+    //         this.props.getPosts(blog.id)
+    //     })).then(() => this.setState({ change: true }));
+    // }
   
 
-    componentWillReceiveProps(newProps) {
+    // componentWillReceiveProps(newProps) {
 
-        if (newProps.post == undefined) {
-            this.setState({ change: true })
+    //     if (newProps.post == undefined) {
+    //         this.setState({ change: true })
 
 
-        } else {
+    //     } else {
 
-            if (newProps.post.id !== this.props.post.id) {
-                this.setState({
-                    id: newProps.post.id,
-                    title: newProps.post.title,
-                    body: newProps.post.body,
-                    blog_id: newProps.post.blog_id
-                });
-            }
-        }
-    }
+    //         if (newProps.post.id !== this.props.post.id) {
+    //             this.setState({
+    //                 id: newProps.post.id,
+    //                 title: newProps.post.title,
+    //                 body: newProps.post.body,
+    //                 blog_id: newProps.post.blog_id
+    //             });
+    //         }
+    //     }
+    // }
 
     // handleAddTag(e) {
     //     e.preventDefault()
@@ -93,12 +94,12 @@ class NoteShowForm extends React.Component {
     }
 
     render() {
-            if(!this.state.change){
-                return null;
-            }
-            debugger
+            // if(!this.state.change){
+            //     return null;
+            // }
             let post = this.props.post;
             // debugger
+            debugger
             // let showtagbutton;
             // if (this.props.tags.length < 1) {
             //     showtagbutton = ''

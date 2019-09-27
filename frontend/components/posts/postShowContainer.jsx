@@ -1,13 +1,14 @@
 import postShowForm from './postShowForm';
 import { connect } from 'react-redux';
 import { getPosts, getPost, deletePost, clearPosts, updatePost } from '../../actions/postActions';
-import { getBlogs } from '../../actions/blogActions';
+import { getBlogs, clearBlogs } from '../../actions/blogActions';
 import { logout } from '../../actions/sessionActions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
-    // debugger
+    
     const post = state.entities.posts[ownProps.match.params.post_id];
+    debugger
     return {
         posts: Object.values(state.entities.posts),
         user: state.entities.user[state.session.id],
@@ -24,6 +25,7 @@ const mdp = dispatch => ({
     clearPosts: () => dispatch(clearPosts()),
     logout: () => dispatch(logout()),
     updatePost: (id, post) => dispatch(updatePost(id, post)),
+    clearBlogs: () => dispatch(clearBlogs())
 
 
 

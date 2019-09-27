@@ -7,6 +7,7 @@ class EntryForm extends React.Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
+        this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
     }
 
     duplicateArray(array) {
@@ -20,8 +21,14 @@ class EntryForm extends React.Component {
         return ans;
     }
 
+    handleCreateSubmit(e){
+        e.preventDefault();
+        this.props.openCreateBlogModal(this.props.user)
+    }
+
     componentDidMount(){
-        this.props.getBlogs(this.props.user)
+        this.props.clearBlogs();
+        this.props.getBlogs(this.props.user);
     }
 
     handleSubmit(e) {
@@ -34,16 +41,25 @@ class EntryForm extends React.Component {
         if (this.props.blogs.length > 0){
             blogs = this.duplicateArray(this.props.blogs);
             blogs = blogs.map(blog => (
-                <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                <div>
+                    <br/>
+                    <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                    <br/>
+                </div>
                 // <li key={blog.id}>{blog.title}</li>
                 )
             )
         }
+    
         return (
             <div className='entry-form'>
                 <h1>HI You're in</h1>
                 <br/>
                 {blogs}
+                <br/>
+                <br/>
+                <button onClick={this.handleCreateSubmit}>Create Blog</button>
+                <br/>
                 <br/>
                 <button onClick={this.handleSubmit}>logout</button>
             </div>

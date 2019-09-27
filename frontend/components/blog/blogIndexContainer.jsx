@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { logout, clearErrors} from '../../actions/sessionActions';
-import EntryForm from './entryForm';
-import {getBlogs} from '../../actions/blogActions'
+import BlogIndexForm from './blogIndexForm';
+import { getBlogs, clearBlogs} from '../../actions/blogActions'
 import { withRouter } from 'react-router-dom';
+import { openCreateBlogModal} from '../../actions/modalActions';
 
 const msp = state => ({
     user: state.entities.user[state.session.id],
@@ -12,8 +13,11 @@ const msp = state => ({
 const mdp = (dispatch) => ({
     logout: () => dispatch(logout()),
     clearErrors: () => dispatch(clearErrors()),
-    getBlogs: user => dispatch(getBlogs(user))
+    getBlogs: user => dispatch(getBlogs(user)),
+    openCreateBlogModal: entity => dispatch(openCreateBlogModal(entity)),
+    clearBlogs: () => dispatch(clearBlogs()),
+    
     
 });
 
-export default withRouter(connect(msp, mdp)(EntryForm));
+export default withRouter(connect(msp, mdp)(BlogIndexForm));
