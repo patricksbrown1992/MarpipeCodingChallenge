@@ -87,7 +87,7 @@ class PostShowForm extends React.Component {
             let blog_id = this.state.blog_id;
             let id = this.state.id;
             let post = { title, body, blog_id, id };
-            debugger
+      
             this.props.deletePost( post )
             return this.props.history.push(`/blogs/${blog_id}`);
         };

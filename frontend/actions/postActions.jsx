@@ -44,12 +44,12 @@ export const createPost = ({ id, post }) => dispatch => {
 };
 
 export const updatePost= ({ id, post }) => dispatch => {
-    // debugger
+
     return APIUtil.updatePost(id, post).then(post => dispatch(receivePost(post)))
 };
 
 export const deletePost = (post) => dispatch => {
-    debugger
+
     return APIUtil.deletePost(post).then((post) => dispatch(destroyPost(post)))
 };
 

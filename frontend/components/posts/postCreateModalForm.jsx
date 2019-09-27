@@ -31,7 +31,7 @@ class PostNewForm extends React.Component {
 
 
     render() {
-        debugger
+
         if (this.state.title.length < 1 || this.state.body.length < 1) {
             // non-working button to prevent empty submissions
             return (

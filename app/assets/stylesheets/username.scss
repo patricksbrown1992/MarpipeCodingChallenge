@@ -1,0 +1,208 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+.fa-times-circle {
+    cursor: pointer;
+    margin-right: 10px;
+}
+.fa-caret-down {
+    margin-right: 5px;
+}
+
+.fa-caret-right {
+    margin-right: 5px;
+}
+.user-email {
+    overflow: hidden;
+    margin-left: 20px;
+}
+main {
+    width: 100%;
+    height: 100%;
+}
+.username-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.left-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    height: 100%;
+    width: 240px;
+}
+
+.username-left-ul{
+    width: 200px;
+    margin-left: 40px;
+}
+
+.username-left-shortcuts-ul {
+    width: 200px;
+    margin-left: 20px;
+}
+
+.left-nav li {
+    color: #c8c8c8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.left-nav a {
+    text-decoration: none;
+    color: #c8c8c8;
+}
+.left-nav input {
+    background-color: rgb(8, 8, 8);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: white;
+    margin-left: 10px;
+    outline: none;
+    width: 75%;
+    background-color: darkslategray;
+    font-size: 14px;
+}
+.new-post {
+
+    justify-content: start;
+    cursor: pointer;
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+.left-nav span {
+    display:flex;
+    flex-direction: row;
+}
+.new-post button{
+    border: none;
+    color: white;
+    height: 100%;
+    font-size: 85%;
+    background-color: #1a1a1a;
+    outline: none;
+}
+.left-nav li:hover {
+    background-color: darkslategrey;
+}
+.username-left-blog-index{
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+}
+
+.center-nav {
+    display: flex;
+    height: 100%;
+
+    width: 100%;
+    flex-direction: row;
+}
+
+.quill{
+    height: 50%;
+}
+.right-nav {
+    display: flex;
+    grid-area: 1 / 2/ 3/ 3;
+    flex-direction: column;
+
+    height: 100%;
+    margin-left: 3%;
+}
+
+
+.right-nav button{
+    width: 10%;
+    outline: none;
+    background-color: #fff;
+    border: none;
+    font-size: 14px;
+    color: forestgreen;
+}
+.right-nav h1 {
+    margin-top: 9%;
+    font-size: 20px;
+}
+.blog-title {
+    margin-top: 14%;
+    font-size: 20px;
+    margin-left: 6%;
+}
+
+.user-email:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.shortcut-blog {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.shortcut-post {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.username-left-blog-index a {
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.fa-sticky-post{
+    margin-right: 8px;
+}
+.shortcuts-li{
+    cursor: pointer;
+    margin-left: 20px
+}
+.fa-ellipsis-h{
+    cursor: pointer;
+}
+
+.search-circle{
+    color: white;
+    size: 24px;
+    
+}
+.hidden-circle{
+    display: none;
+    height: 0;
+    opacity: 0;
+}
+
+.left-search-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tags-li{
+    margin-left: 30px;
+}
+.all-posts-li{
+    margin-left: 33px;
+}
+.blogs-li{
+    margin-left: 20px
+}
+
+.fa-tag{
+    cursor: pointer;
+}

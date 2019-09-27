@@ -10,6 +10,8 @@ import TagDropDownContainer from '../../components/tags/tagDropContainer';
 import TagEditContainer from '../../components/tags/tagEditContainer';
 import TagDeleteContainer from '../../components/tags/tagDeleteContainer';
 import LogoutContainer from '../leftNav/logoutContainer';
+import PostDropContainer from '../posts/postDropDownContainer';
+import PostDelete from '../posts/postDeleteContainer';
 
 function Modal({ modal, closeModal }) {
 
@@ -37,11 +39,17 @@ function Modal({ modal, closeModal }) {
         case 'updateBlog':
             component = <UpdateBlog id={modal.entity}/>
             break;
+        case 'postDropDown':
+            component = <PostDropContainer post={modal.entity}/>
+            break
         case 'editTag':
             component = <TagEditContainer id={modal.entity.id} />;
             break;
         case 'addTag':
             component = <TagNewContainer id={modal.entity.id} />;
+            break;
+        case 'postDelete':
+            component = <PostDelete post={modal.entity}/>
             break;
         case 'tagDropDown':
             component = <TagDropDownContainer tag={modal.entity} />;

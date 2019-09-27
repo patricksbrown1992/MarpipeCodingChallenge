@@ -80,6 +80,29 @@ export const openAddTagModal = entity => {
         modal: 'addTag'
     }
 }
+export const postDropDown = entity => {
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'postDropDown'
+    };
+};
+
+export const postEdit = entity => {
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'postEdit'
+    };
+};
+
+export const postDelete = entity => {
+    return {
+        type: OPEN_MODAL,
+        entity,
+        modal: 'postDelete'
+    };
+};
 
 
 export const closeModal = () => ({

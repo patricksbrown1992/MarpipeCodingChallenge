@@ -39,27 +39,29 @@ class EntryForm extends React.Component {
         if (this.props.blogs.length > 0){
             blogs = this.duplicateArray(this.props.blogs);
             blogs = blogs.map(blog => (
-                <div>
-                    <br/>
-                    <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
-                    <br/>
-                </div>
-                // <li key={blog.id}>{blog.title}</li>
+                
+                <li key={blog.id}><Link to={`/blogs/${blog.id}`}>{blog.title}</Link></li> 
+                
                 )
             )
         }
     
         return (
             <div className='entry-form'>
-                <h1>HI You're in</h1>
                 <LeftNav />
-                <br/>
-                {blogs}
-                <br/>
-                <br/>
-                <button onClick={this.handleCreateSubmit}>Create Blog</button>
-                <br/>
-                <br/>
+                <div>
+                    <br/>
+                    <div className='blogs-index-list'>
+                        {blogs}
+
+                    </div>
+                    <br/>
+                    <br/>
+                    <button onClick={this.handleCreateSubmit}>Create Blog</button>
+                    <br/>
+                    <br/>
+
+                </div>
                
             </div>
 

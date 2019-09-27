@@ -7,11 +7,9 @@ class PostIndexForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {change: false};
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.duplicateArray = this.duplicateArray.bind(this);
         this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
-        this.handleOpenDeleteModal = this.handleOpenDeleteModal.bind(this);
-        this.handleUpdateSubmit = this.handleUpdateSubmit.bind(this);
+        this.handleSubmitPostDropDown = this.handleSubmitPostDropDown.bind(this);
     }
 
     duplicateArray(array) {
@@ -31,10 +29,7 @@ class PostIndexForm extends React.Component {
         this.props.openCreatePostModal(this.props.blog.id)
     }
 
-    handleUpdateSubmit(e){
-        e.preventDefault();
-        this.props.openUpdateBlogModal(this.props.blog.id)
-    }
+   
 
     componentDidMount() {
         this.props.clearBlogs();
@@ -44,17 +39,16 @@ class PostIndexForm extends React.Component {
         .then(() => this.setState({change: true}))
        
     }
-
-    handleOpenDeleteModal(e){
-        e.preventDefault();
-        this.props.openDeleteBlogModal(this.props.blog);
-
+    handleSubmitPostDropDown(entity) {
+        return (e) => {
+            e.preventDefault();
+            this.props.postDropDown(entity)
+        };
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.logout();
-    }
+ 
+
+ 
 
    
 
@@ -69,7 +63,7 @@ class PostIndexForm extends React.Component {
                 <li key={post.id}><Link to={`/blogs/${post.blog_id}/posts/${post.id}`}>{post.title}</Link> 
                 <br/>
                 <br/>
-                {post.body.replace(/(<([^>]+)>)/ig, "")}</li>
+                    {post.body.replace(/(<([^>]+)>)/ig, "")}<i onClick={this.handleSubmitPostDropDown(post)} className="fas fa-ellipsis-h"></i></li>
             )
             )
         }
@@ -81,14 +75,17 @@ class PostIndexForm extends React.Component {
                 {posts}
                 <br/>
                 <br/>
-                <button onClick={this.handleCreateSubmit}>Create Post</button>
-                <br />
-                <br/>
-                <button onClick={this.handleUpdateSubmit}>Change Blog name</button>
-                <br/>
-                <button onClick={this.handleUpdateSubmit}>Delete Blog</button>
-                <br/>
-                <button onClick={this.handleSubmit}>logout</button>
+                <div>
+                    
+                    <button onClick={this.handleCreateSubmit}>Create Post</button>
+                    <br />
+                    <br/>
+                    <button onClick={this.handleUpdateSubmit}>Change Blog name</button>
+                    <br/>
+                    <button onClick={this.handleUpdateSubmit}>Delete Blog</button>
+                    
+
+                </div>
             </div>
 
 
